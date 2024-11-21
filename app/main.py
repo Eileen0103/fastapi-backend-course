@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends ,HTTPException
 from pydantic import BaseModel
 from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
@@ -6,7 +6,11 @@ from sqlalchemy.orm import sessionmaker, Session
 
 app=FastAPI()
 
-#Database Co
+'''
+Database
+'''
+
+#Database Connection Information
 DATABASE_URL = "sqlite:///./todos/db"
 Base = declarative_base()
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread":False})
@@ -15,7 +19,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 #Define Model
 class Todo(Base):
         __tablename__= "todos"
-        id = Column(Integer, primary_ket=True, Index=True)
+        id = Column(Integer, primary_ket=True, Index=True) #流水編號
         title = Column(String, nullable=False)
         description = Column(String, nullable=True)
         completed =Column(Boolean, default=False)
@@ -29,9 +33,9 @@ VALIDATION
 
 #Pydantic
 class TodoBase(BaseModel):
-        title:str
-        description:str | None = None
-        completed:bool=False
+        title: str
+        description: str | None = None
+        completed: bool = False
 
 class TodoCreate(TodoBase):
         pass 
