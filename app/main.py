@@ -53,7 +53,7 @@ def get_db():
 @app.post("/todos", response_model=TodoResponse)
 def create_todo(todo: TodoCreate, db:Session = Depends(get_db)):
     db_todo = Todo(**todo.dict())
-    db.add(db.todo)
+    db.add(db_todo)
     db.commit()
     db.refresh(db_todo)
     return db_todo
