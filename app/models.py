@@ -17,4 +17,4 @@ class User(Base):
     username = Column(String, nullable=False, unique=True) 
     password = Column(String, nullable=False)               
     email = Column(String, nullable=False, unique=True)     
-    status = Column(String, default="active", nullable=False)  
+    status = Column(String, default="active", nullable=False)
