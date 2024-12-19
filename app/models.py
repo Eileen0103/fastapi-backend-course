@@ -1,4 +1,4 @@
-from sqlalchemy import Column,Date,Integer,String,Boolean, Column
+from sqlalchemy import Column,Date,Integer,String,Boolean
 from .database import Base
 
 #Define Model
