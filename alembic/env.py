@@ -6,7 +6,11 @@ from sqlalchemy import pool
 from alembic import context
 
 from app.database import Base
+<<<<<<< Updated upstream
 from app.models import Todo
+=======
+from app.models import Todo, User
+>>>>>>> Stashed changes
 
 
 # this is the Alembic Config object, which provides
