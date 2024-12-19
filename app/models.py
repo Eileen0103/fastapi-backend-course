@@ -1,4 +1,4 @@
-from sqlalchemy import Column,Date,Integer,String,Boolean,Column
+from sqlalchemy import Column,Date,Integer,String,Boolean
 from .database import Base
 
 #Define Model
@@ -19,3 +19,4 @@ class User(Base):
     username = Column(String, nullable=False, unique=True) 
     password = Column(String, nullable=False)               
     email = Column(String, nullable=False, unique=True)     
+    status = Column(String, default="active", nullable=False)  
